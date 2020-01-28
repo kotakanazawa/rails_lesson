@@ -1,13 +1,13 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Books</h1>
+<h1>書籍</h1>
 
 <table>
   <thead>
     <tr>
-      <th>Title</th>
-      <th>Memo</th>
-      <th>Author</th>
+      <th><%= Book.human_attribute_name(:title) %></th>
+      <th><%= Book.human_attribute_name(:memo) %></th>
+      <th><%= Book.human_attribute_name(:author) %></th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -18,9 +18,9 @@
         <td><%= book.title %></td>
         <td><%= book.memo %></td>
         <td><%= book.author %></td>
-        <td><%= link_to 'Show', book %></td>
-        <td><%= link_to 'Edit', edit_book_path(book) %></td>
-        <td><%= link_to 'Destroy', book, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to t("link.show"), book %></td>
+        <td><%= link_to t("link.edit"), edit_book_path(book) %></td>
+        <td><%= link_to t("link.destroy"), book, method: :delete, data: { confirm: t("confirm.are_you_sure") } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -28,4 +28,4 @@
 
 <br>
 
-<%= link_to 'New Book', new_book_path %>
+<%= link_to t('link.new_book'), new_book_path %>
