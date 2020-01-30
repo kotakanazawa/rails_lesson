@@ -2,6 +2,11 @@
 
 <h1>書籍</h1>
 
+<div class="pagination">
+  <%= paginate @books %>
+  <%= page_entries_info @books %>
+</div>
+
 <table>
   <thead>
     <tr>
