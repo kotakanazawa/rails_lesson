@@ -4,13 +4,11 @@ class BooksController < ApplicationController
   before_action :set_book, only: [:show, :edit, :update, :destroy]
 
   # GET /books
-  # GET /books.json
   def index
-    @books = Book.all
+    @books = Book.page(params[:page]).per(15)
   end
 
   # GET /books/1
-  # GET /books/1.json
   def show
   end
 
@@ -24,7 +22,6 @@ class BooksController < ApplicationController
   end
 
   # POST /books
-  # POST /books.json
   def create
     @book = Book.new(book_params)
     @book.save!
@@ -32,23 +29,18 @@ class BooksController < ApplicationController
   end
 
   # PATCH/PUT /books/1
-  # PATCH/PUT /books/1.json
   def update
     if @book.update(book_params)
-    redirect_to @book, notice: t("success.book_was_successfully_updated")
+      redirect_to @book, notice: t("success.book_was_successfully_updated")
     else
       render :edit, t("errors.messages.book_edit_failure")
     end
   end
 
   # DELETE /books/1
-  # DELETE /books/1.json
   def destroy
     @book.destroy
-    respond_to do |format|
-      format.html { redirect_to books_url, notice: t("success.book_was_successfully_destroyed") }
-      format.json { head :no_content }
-    end
+    redirect_to books_url, notice: t("success.book_was_successfully_destroyed")
   end
 
   private
