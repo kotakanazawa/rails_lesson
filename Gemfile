@@ -58,8 +58,11 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-# 画僧アップロード機能
+# image uploading
 gem "carrierwave"
 
 # i18n
-gem 'rails-i18n'
+gem "rails-i18n"
+
+# pagination
+gem "kaminari"
