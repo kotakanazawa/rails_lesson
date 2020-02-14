@@ -5,7 +5,9 @@ class BooksController < ApplicationController
 
   # GET /books
   def index
-    @books = Book.page(params[:page])
+    @books = current_user.books.page(params[:page])
+    # @books = current_user.books.page(params[:page])
+    # @books = current_user.books.page(params[:page])
   end
 
   # GET /books/1
@@ -14,7 +16,7 @@ class BooksController < ApplicationController
 
   # GET /books/new
   def new
-    @book = Book.new
+    @book = current_user.books.new
   end
 
   # GET /books/1/edit
@@ -23,8 +25,8 @@ class BooksController < ApplicationController
 
   # POST /books
   def create
-    @book = Book.new(book_params)
-    @book.save!
+    @book = current_user.books.new(book_params)
+    @book.save
     redirect_to @book, notice: t("success.book_was_successfully_created")
   end
 
@@ -44,13 +46,12 @@ class BooksController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_book
-      @book = Book.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def book_params
-      params.require(:book).permit(:title, :memo, :author, :picture)
-    end
+  def set_book
+    @book = current_user.books.find(params[:id])
+  end
+
+  def book_params
+    params.require(:book).permit(:title, :memo, :author, :picture)
+  end
 end
