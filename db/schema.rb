@@ -1,5 +1,6 @@
-ActiveRecord::Schema.define(version: 2020_02_14_074820) do
+# frozen_string_literal: true
 
+ActiveRecord::Schema.define(version: 2020_02_14_074820) do
   create_table "books", force: :cascade do |t|
     t.string "title"
     t.text "memo"
@@ -25,5 +26,4 @@ ActiveRecord::Schema.define(version: 2020_02_14_074820) do
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
-
 end
