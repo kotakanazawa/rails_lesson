@@ -1,4 +1,3 @@
----
 ja:
   activerecord:
     errors:
@@ -22,13 +21,12 @@ ja:
       user:
         name: 名前
         postcode: 郵便番号
-        email: email
+        email: Eメール
         address: 住所
         introduction: 自己紹介
         password: パスワード
         password_confirmation: パスワードの確認
         current_password: 現在のパスワード
-
   date:
     abbr_day_names:
     - 日
