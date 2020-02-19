@@ -5,5 +5,5 @@ Rails.application.routes.draw do
 
   devise_for :users
   resources :books
-  get "/users/show"
+  resource :users, only: :show
 end

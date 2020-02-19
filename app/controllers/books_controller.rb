@@ -5,7 +5,7 @@ class BooksController < ApplicationController
 
   # GET /books
   def index
-    @books = current_user.books.page(params[:page])
+    @books = current_user.books.order(:id).page(params[:page])
   end
 
   # GET /books/1
@@ -24,7 +24,7 @@ class BooksController < ApplicationController
   # POST /books
   def create
     @book = current_user.books.new(book_params)
-    @book.save
+    @book.save!
     redirect_to @book, notice: t("success.book_was_successfully_created")
   end
 
