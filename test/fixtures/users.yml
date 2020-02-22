@@ -1,0 +1,7 @@
+user1:
+  email: user1@example.com
+  encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
+  name: user1
+  postcode: 0000000
+  address: 大阪
+  introduction: こんにちは。

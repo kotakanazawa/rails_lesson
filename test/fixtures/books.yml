@@ -1,9 +1,5 @@
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-one:
-  title: MyString
-  memo: MyText
-
-two:
-  title: MyString
-  memo: MyText
+book1:
+  title: メモの魔力
+  memo: いろいろ学べた
+  author: 前田裕二
+  user: user1
