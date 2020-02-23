@@ -34,6 +34,7 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
   gem "awesome_print"
+  gem "dotenv-rails"
 end
 
 group :development do
@@ -71,3 +72,7 @@ gem "kaminari"
 # devise
 gem "devise"
 gem "devise-i18n"
+
+# OmniAuth
+gem "omniauth"
+gem "omniauth-github"
