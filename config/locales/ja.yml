@@ -15,7 +15,7 @@ ja:
         title: タイトル
         memo: メモ
         author: 著者
-        picture: 写真
+        image: 画像
         created_at: 登録日時
         updated_at: 更新日時
       user:
@@ -239,4 +239,3 @@ ja:
       book_was_successfully_updated: 書籍情報の編集に成功しました
   confirm:
     are_you_sure: 本当によろしいですか？
-
