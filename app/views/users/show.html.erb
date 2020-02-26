@@ -6,4 +6,5 @@
   <li>profile: <%= @user.introduction %></li>
   <li>postcode: <%= @user.postcode %></li>
   <li>address: <%= @user.address %></li>
+  <li>image: <%= image_tag(@user.image) if @user.image.present? %></li>
 </ul>

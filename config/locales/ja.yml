@@ -23,6 +23,7 @@ ja:
         postcode: 郵便番号
         email: Eメール
         address: 住所
+        image: 画像
         introduction: 自己紹介
         password: パスワード
         password_confirmation: パスワードの確認
