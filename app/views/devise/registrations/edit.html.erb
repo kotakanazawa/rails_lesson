@@ -20,12 +20,17 @@
 
   <div class="field">
     <%= f.label :introduction %> <br />
-    <%= f.text_field :introduction, autofocus: true %>
+    <%= f.text_field :introduction %>
+  </div>
+
+  <div class="field">
+    <%= f.label :image %> <br />
+    <%= f.file_field :image %>
   </div>
 
   <div class="field">
     <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%= f.email_field :email, autocomplete: "email" %>
   </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
