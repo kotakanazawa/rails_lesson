@@ -14,7 +14,8 @@
       <nav>
         <% if user_signed_in? %>
           <%= link_to '書籍一覧', books_path %>
-          <%= link_to 'ユーザーページ', users_path %>
+          <%= link_to 'ユーザーページ', user_path(current_user) %>
+          <%= link_to 'ユーザー一覧', users_path %>
           <%= link_to 'プロフィール編集', edit_user_registration_path %>
           <%= link_to "ログアウト", destroy_user_session_path, method: :delete, data: { confirm: t('confirm.are_you_sure') } %>
         <% end %>

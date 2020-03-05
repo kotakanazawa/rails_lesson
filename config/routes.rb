@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  get 'relationships/create'
-  get 'relationships/destroy'
   root "books#index"
 
   devise_for :users, controllers: {
@@ -10,5 +8,12 @@ Rails.application.routes.draw do
     omniauth_callbacks: "users/omniauth_callbacks"
   }
   resources :books
-  resource :users, only: :show
+
+  resources :users do
+    resource :relationships, only: [:create, :destroy]
+    member do
+      get :follows, only: :index
+      get :followers, only: :index
+    end
+  end
 end

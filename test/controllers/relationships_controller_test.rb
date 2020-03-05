@@ -1,4 +1,6 @@
-require 'test_helper'
+# frozen_string_literal: true
+
+require "test_helper"
 
 class RelationshipsControllerTest < ActionDispatch::IntegrationTest
   test "should get create" do
@@ -10,5 +12,4 @@ class RelationshipsControllerTest < ActionDispatch::IntegrationTest
     get relationships_destroy_url
     assert_response :success
   end
-
 end
