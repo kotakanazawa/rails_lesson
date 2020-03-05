@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  get 'relationships/create'
+  get 'relationships/destroy'
   root "books#index"
 
   devise_for :users, controllers: {
