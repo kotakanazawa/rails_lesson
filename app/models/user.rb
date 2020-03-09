@@ -11,14 +11,22 @@ class User < ApplicationRecord
   has_many :books, dependent: :destroy
   validates :name, :email, presence: true
 
-  has_many :active_relationships, class_name: "Relationship", foreign_key: :following_id
-  has_many :passive_relationships, class_name: "Relationship", foreign_key: :follower_id
+  has_many :active_follows, class_name: "Follow", foreign_key: :following_id
+  has_many :passive_follows, class_name: "Follow", foreign_key: :follower_id
 
-  has_many :followings, through: :active_relationships, source: :follower
-  has_many :followers, through: :passive_relationships, source: :following
+  has_many :followings, through: :active_follows, source: :follower
+  has_many :followers, through: :passive_follows, source: :following
 
   def followed_by?(user)
-    passive_relationships.find_by(following_id: user.id).present?
+    passive_follows.find_by(following_id: user.id).present?
+  end
+
+  def follow(other_user)
+    followings << other_user
+  end
+
+  def unfollow(other_user)
+    active_follows.find_by(follower_id: other_user.id).destroy
   end
 
   def self.create_unique_string
