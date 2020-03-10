@@ -13,7 +13,7 @@ class UserTest < ActiveSupport::TestCase
     assert @user2.valid?
   end
 
-  test "ユーザーをフォロー、アンフォローができる" do
+  test "followed_byのテストができている" do
     user1 = users(:user1)
     user2  = users(:user2)
     assert_not user2.followed_by?(user1)
