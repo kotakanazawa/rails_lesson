@@ -21,14 +21,6 @@ class User < ApplicationRecord
     passive_follows.find_by(following_id: user.id).present?
   end
 
-  def follow(other_user)
-    followings << other_user
-  end
-
-  def unfollow(other_user)
-    active_follows.find_by(follower_id: other_user.id).destroy
-  end
-
   def self.create_unique_string
     SecureRandom.uuid
   end
