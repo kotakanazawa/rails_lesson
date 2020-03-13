@@ -19,3 +19,4 @@
 <% if @user.followed_by?(current_user) %>
   <%= render "shared/books" %>
 <% end %>
+<%= link_to "日報一覧", reports_path %>

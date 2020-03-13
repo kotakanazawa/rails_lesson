@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  resources :reports
   root "books#index"
+  resources :reports
 
   devise_for :users, controllers: {
     registrations: "users/registrations",
