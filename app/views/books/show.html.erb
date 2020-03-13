@@ -18,5 +18,17 @@
   <%= image_tag(@book.image) if @book.image.present? %>
 </p>
 
+<h2>コメントする</h2>
+<%= link_to 'コメントする', new_book_comment_path(@book) %>
+
+<h2>コメント</h2>
+<% @book.comments.each do |comment| %>
+<%= comment.body %>
+<% if current_user.id == comment.user_id %>
+  <%= link_to '削除', book_comment_path(@book.id, comment.id), method: :delete, data: { confirm: t("confirm.are_you_sure") } %>
+<% end %>
+<hr>
+<% end %>
+
 <%= link_to t('link.edit'), edit_book_path(@book) %> |
 <%= link_to t('link.back'), books_path %>

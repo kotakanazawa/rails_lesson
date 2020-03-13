@@ -8,7 +8,20 @@
   <%= @report.body %>
 </p>
 
-<% if current_user.id == @report.user_id %>
-  <%= link_to 'Edit', edit_report_path(@report) %> |
+<h2>コメントする</h2>
+<%= link_to 'コメントする', new_report_comment_path(@report) %>
+
+<h2>コメント</h2>
+<% @report.comments.each do |comment| %>
+  <%= comment.user_id %>
+  <%= comment.body %>
+  <% if current_user.id == comment.user_id %>
+    <%= link_to '削除', report_comment_path(@report.id, comment.id), method: :delete, data: { confirm: t("confirm.are_you_sure") } %>
+  <% end %>
+  <hr>
 <% end %>
-<%= link_to 'Back', user_path(@report.user_id) %>
+
+<% if current_user.id == @report.user_id %>
+  <%= link_to link_to t("link.edit"), edit_report_path(@report) %> |
+<% end %>
+<%= link_to t('link.back'), user_path(@report.user_id) %>

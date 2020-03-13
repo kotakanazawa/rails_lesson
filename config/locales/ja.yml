@@ -248,5 +248,10 @@ ja:
       report_was_successfully_created: 日報の作成に成功しました
       report_was_successfully_destroyed: 日報の削除に成功しました
       report_was_successfully_updated: 日報の編集に成功しました
+      comment_was_successfully_created: コメントしました
+      comment_was_successfully_destroyed: コメントを削除しました
   confirm:
     are_you_sure: 本当によろしいですか？
+  title:
+    new_book: 書籍登録
+    new_report: 日報登録
