@@ -2,7 +2,6 @@
 
 Rails.application.routes.draw do
   root "books#index"
-  resources :reports
 
   devise_for :users, controllers: {
     registrations: "users/registrations",
@@ -10,6 +9,7 @@ Rails.application.routes.draw do
   }
   resources :books
   resources :users do
+    resources :reports
     resource :follows, only: [:create, :destroy]
     member do
       get :follows, only: :index
