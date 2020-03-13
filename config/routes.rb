@@ -8,5 +8,11 @@ Rails.application.routes.draw do
     omniauth_callbacks: "users/omniauth_callbacks"
   }
   resources :books
-  resource :users, only: :show
+  resources :users do
+    resource :follows, only: [:create, :destroy]
+    member do
+      get :follows, only: :index
+      get :followers, only: :index
+    end
+  end
 end

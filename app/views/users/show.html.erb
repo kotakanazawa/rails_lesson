@@ -1,10 +1,21 @@
 <% provide(:title, @user.name) %>
-<h1>My page (<%= @user.name %>)</h1>
+<h1>ユーザーページ (<%= @user.name %>)</h1>
+
+<p><%= image_tag(@user.image) if @user.image.present? %></p>
+<p>
+  Followings: <%= link_to @user.followings.count, follows_user_path(@user.id) %>
+  Followers: <%= link_to @user.followers.count, followers_user_path(@user.id) %>
+</p>
+
+<h2>プロフィール</h2>
 <ul>
   <li>name: <%= @user.name %></li>
   <li>email: <%= @user.email %></li>  
   <li>profile: <%= @user.introduction %></li>
   <li>postcode: <%= @user.postcode %></li>
   <li>address: <%= @user.address %></li>
-  <li>image: <%= image_tag(@user.image) if @user.image.present? %></li>
 </ul>
+
+<% if @user.followed_by?(current_user) %>
+  <%= render "shared/books" %>
+<% end %>

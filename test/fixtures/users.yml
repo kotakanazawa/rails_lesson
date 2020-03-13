@@ -5,3 +5,11 @@ user1:
   postcode: 0000000
   address: 大阪
   introduction: こんにちは。
+
+user2:
+  email: user2@example.com
+  encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
+  name: user2
+  postcode: 0000000
+  address: 沖縄
+  introduction: なんくるないさ。
