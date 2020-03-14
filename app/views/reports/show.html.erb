@@ -1,21 +1,22 @@
 <p>
-  <strong><%= Book.human_attribute_name(:title) %>:</strong>
+  <strong><%= Report.human_attribute_name(:title) %>:</strong>
   <%= @report.title %>
 </p>
 
 <p>
-  <strong><%= Book.human_attribute_name(:body) %>:</strong>
+  <strong><%= Report.human_attribute_name(:body) %>:</strong>
   <%= @report.body %>
 </p>
 
-<h2>コメントする</h2>
+<h2><%= t("title.new_comment") %></h2>
 <%= link_to 'コメントする', new_report_comment_path(@report) %>
 
-<h2>コメント</h2>
+<h2><%= t("title.comments") %></h2>
 <% @report.comments.each do |comment| %>
-  <%= comment.user_id %>
   <%= comment.body %>
-  <% if current_user.id == comment.user_id %>
+  by
+  <%= comment.user.name %>
+  <% if current_user == comment.user %>
     <%= link_to '削除', report_comment_path(@report.id, comment.id), method: :delete, data: { confirm: t("confirm.are_you_sure") } %>
   <% end %>
   <hr>

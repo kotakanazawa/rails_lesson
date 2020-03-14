@@ -7,7 +7,7 @@ class CommentsController < ApplicationController
   def index
     @comments = @commentable.comments
   end
-  
+
   def new
     @comment = @commentable.comments.build
   end
@@ -29,7 +29,7 @@ class CommentsController < ApplicationController
 
   private
     def set_commentable
-      resource, id = request.path.split('/')[1, 2]
+      resource, id = request.path.split("/")[1, 2]
       @commentable = resource.singularize.classify.constantize.find(id)
     end
 
