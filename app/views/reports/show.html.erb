@@ -22,7 +22,7 @@
   <hr>
 <% end %>
 
-<% if current_user.id == @report.user_id %>
+<% if current_user == @report.user %>
   <%= link_to link_to t("link.edit"), edit_report_path(@report) %> |
 <% end %>
 <%= link_to t('link.back'), user_path(@report.user_id) %>

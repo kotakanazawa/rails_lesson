@@ -32,5 +32,7 @@
 <hr>
 <% end %>
 
-<%= link_to t('link.edit'), edit_book_path(@book) %> |
+<% if current_user == @book.user %>
+  <%= link_to link_to t("link.edit"), edit_book_path(@book) %> |
+<% end %>
 <%= link_to t('link.back'), books_path %>
