@@ -40,7 +40,7 @@
   <tbody>
     <% @reports.each do |report| %>
       <tr>
-        <td><%= report.created_at.strftime('%Y/%m/%d %H:%M') %></td>
+        <td><%= l report.created_at %></td>
         <td><%= report.title %></td>
         <td><%= report.body %></td>
         <td><%= link_to t("link.show"), report %></td>
