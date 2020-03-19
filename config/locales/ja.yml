@@ -9,6 +9,7 @@ ja:
     models:
       book: 書籍
       user: ユーザー
+      report: 日報
     attributes:
       book:
         id: ID
@@ -28,6 +29,11 @@ ja:
         password: パスワード
         password_confirmation: パスワードの確認
         current_password: 現在のパスワード
+      report:
+        title: タイトル
+        body: 内容
+        created_at: 登録日時
+        updated_at: 更新日時
   date:
     abbr_day_names:
     - 日
@@ -223,7 +229,7 @@ ja:
   time:
     am: 午前
     formats:
-      default: "%Y年%m月%d日(%a) %H時%M分%S秒 %z"
+      default: "%Y年%m月%d日(%a) %H時%M分"
       long: "%Y/%m/%d %H:%M"
       short: "%m/%d %H:%M"
     pm: 午後
@@ -232,11 +238,22 @@ ja:
     show: 詳細
     destroy: 削除
     new_book: 新規登録
+    new_report: 日報を書く
     back: 戻る
     update: 更新
   success:
       book_was_successfully_created: 書籍情報の登録に成功しました
       book_was_successfully_destroyed: 書籍情報の削除に成功しました
       book_was_successfully_updated: 書籍情報の編集に成功しました
+      report_was_successfully_created: 日報の作成に成功しました
+      report_was_successfully_destroyed: 日報の削除に成功しました
+      report_was_successfully_updated: 日報の編集に成功しました
+      comment_was_successfully_created: コメントしました
+      comment_was_successfully_destroyed: コメントを削除しました
   confirm:
     are_you_sure: 本当によろしいですか？
+  title:
+    new_book: 書籍登録
+    new_report: 日報登録
+    new_comment: コメントする
+    comments: コメント

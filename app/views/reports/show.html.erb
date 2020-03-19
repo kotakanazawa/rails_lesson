@@ -1,0 +1,28 @@
+<p>
+  <strong><%= Report.human_attribute_name(:title) %>:</strong>
+  <%= @report.title %>
+</p>
+
+<p>
+  <strong><%= Report.human_attribute_name(:body) %>:</strong>
+  <%= @report.body %>
+</p>
+
+<h2><%= t("title.new_comment") %></h2>
+<%= link_to 'コメントする', new_report_comment_path(@report) %>
+
+<h2><%= t("title.comments") %></h2>
+<% @report.comments.each do |comment| %>
+  <%= comment.body %>
+  by
+  <%= comment.user.name %>
+  <% if current_user == comment.user %>
+    <%= link_to '削除', report_comment_path(@report.id, comment.id), method: :delete, data: { confirm: t("confirm.are_you_sure") } %>
+  <% end %>
+  <hr>
+<% end %>
+
+<% if current_user == @report.user %>
+  <%= link_to link_to t("link.edit"), edit_report_path(@report) %> |
+<% end %>
+<%= link_to t('link.back'), user_path(@report.user_id) %>

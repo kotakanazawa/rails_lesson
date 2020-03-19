@@ -221,11 +221,15 @@ en:
     edit: edit
     show: show
     destroy: destroy
-    new_book: new_book
+    new_book: new book
+    new_report: new report
     back: back
   success:
       book_was_successfully_created: Book was successfully created
       book_was_successfully_destroyed: Book was successfully destroyed
       book_was_successfully_updated: Book was successfully updated
+      report_was_successfully_created: Report was successfully created
+      report_was_successfully_destroyed: Report was successfully destroyed
+      report_was_successfully_updated: Report was successfully created
   confirm:
     are_you_sure: Are you sure?

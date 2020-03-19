@@ -1,0 +1,6 @@
+<h1><%= t("title.new_report") %></h1>
+
+<p>現在のユーザー: <%= @current_user.name %></p>
+<%= render 'form', report: @report %>
+
+<%= link_to t('link.back'), user_path(current_user) %>
