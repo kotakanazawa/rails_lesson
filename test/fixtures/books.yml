@@ -3,3 +3,9 @@ book1:
   memo: いろいろ学べた
   author: 前田裕二
   user: user1
+
+book2:
+  title: リトルマーメイド
+  memo: アリエルのおはなし
+  author: ディズニー
+  user: user1

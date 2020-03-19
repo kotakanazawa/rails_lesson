@@ -253,6 +253,8 @@ ja:
   confirm:
     are_you_sure: 本当によろしいですか？
   title:
+    books: 書籍
+    book: 書籍の詳細
     new_book: 書籍登録
     new_report: 日報登録
     new_comment: コメントする
