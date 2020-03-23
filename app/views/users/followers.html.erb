@@ -1,4 +1,4 @@
-<h2>Followers</h2>
+<h1>フォロワー</h1>
 <ul>
   <% @users.each do |follower| %>
     <li><%= link_to follower.name, user_path(follower.id) %></li>

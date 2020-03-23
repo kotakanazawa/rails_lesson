@@ -1,7 +1,7 @@
 <h2>コメント</h2>
 <%= form_with(model: [@commentable, @comment], local: true) do |form| %>
   <div class="form">
-    <%= form.label :body, "コメント" %>
+    <%= form.label :body %>
     <%= form.text_field :body %>
   </div>
   <div><%= form.submit%></div>

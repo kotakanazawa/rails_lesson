@@ -9,6 +9,7 @@ class BooksTest < ApplicationSystemTestCase
     Warden.test_mode!
     @user1 = users(:user1)
     login_as(@user1)
+    @book = books(:book1)
   end
 
   test "show books" do
@@ -33,15 +34,13 @@ class BooksTest < ApplicationSystemTestCase
   end
 
   test "show book" do
-    book = books(:book1)
-    visit book_path(book)
+    visit book_path(@book)
 
     assert_selector "h1", text: I18n.t("title.book")
   end
 
   test "update book" do
-    book = books(:book1)
-    visit edit_book_path(book)
+    visit edit_book_path(@book)
 
     fill_in I18n.t("activerecord.attributes.book.title"), with: "独学のすすめ"
     fill_in I18n.t("activerecord.attributes.book.memo"), with: "すばらしくわかりやすい"
