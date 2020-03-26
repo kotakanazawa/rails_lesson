@@ -1,0 +1,9 @@
+comment1:
+  body: すごいやん
+  commentable: book1(Book)
+  user: user1
+
+comment2:
+  body: やるやん
+  commentable: report(Report)
+  user: user1
