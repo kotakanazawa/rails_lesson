@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 # config valid for current version and patch releases of Capistrano
 lock "~> 3.12.1"
 
 set :application, "rails_lesson"
 set :repo_url, "git@github.com:kotakanazawa/rails_lesson.git"
-set :user, 'deploy'
+set :user, "deploy"
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
@@ -43,8 +45,8 @@ set :deploy_via, :remote_cache
 set :conditionally_migrate, true
 
 # bundlerの設定
-append :linked_dirs, '.bundle'
+append :linked_dirs, ".bundle"
 set :bundle_jobs, 1
 
 # pumaコマンドをbundle execで実行
-append :rbenv_map_bins, 'puma', 'pumactl'
+append :rbenv_map_bins, "puma", "pumactl"

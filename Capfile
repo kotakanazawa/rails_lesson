@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Load DSL and set up stages
 require "capistrano/setup"
 
@@ -30,15 +32,15 @@ install_plugin Capistrano::SCM::Git
 # require "capistrano/chruby"
 # require "capistrano/passenger"
 
-require 'capistrano/postgresql'
-require 'capistrano/safe_deploy_to'
-require 'capistrano/rbenv'
-require 'capistrano/rbenv_install'
-require 'capistrano/bundler'
-require 'capistrano/rails/assets'
-require 'capistrano/faster_assets'
-require 'capistrano/rails/migrations'
-require 'capistrano/puma'
+require "capistrano/postgresql"
+require "capistrano/safe_deploy_to"
+require "capistrano/rbenv"
+require "capistrano/rbenv_install"
+require "capistrano/bundler"
+require "capistrano/rails/assets"
+require "capistrano/faster_assets"
+require "capistrano/rails/migrations"
+require "capistrano/puma"
 install_plugin Capistrano::Puma
 install_plugin Capistrano::Puma::Nginx
 
