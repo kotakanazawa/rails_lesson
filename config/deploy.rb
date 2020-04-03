@@ -11,7 +11,7 @@ set :user, "deploy"
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
 # Default deploy_to directory is /var/www/my_app_name
-set :deploy_to, "/srv/rails_lesson"
+set :deploy_to, "/srv/#{fetch(:application)}"
 
 # Default value for :format is :airbrussh.
 # set :format, :airbrussh
@@ -44,9 +44,35 @@ append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/syst
 set :deploy_via, :remote_cache
 set :conditionally_migrate, true
 
+# rbenvの設定
+set :rbenv_type, :user
+set :rbenv_custom_path, '/home/deploy/.anyenv/envs/rbenv'
+set :rbenv_ruby, File.read('.ruby-version').strip
+set :rbenv_prefix, "RBENV_ROOT=#{fetch(:rbenv_path)} RBENV_VERSION=#{fetch(:rbenv_ruby)} #{fetch(:rbenv_path)}/bin/rbenv exec"
+set :rbenv_map_bins, %w[rake gem bundle ruby rails]
+set :rbenv_roles, :all
+
 # bundlerの設定
 append :linked_dirs, ".bundle"
 set :bundle_jobs, 1
+
+# nodeの設定
+set :default_env, { NODE_ENV: 'production' }
+
+desc "Initial Deploy"
+task :initial do
+  on roles(:app) do
+    before 'deploy:restart', 'puma:start'
+    invoke 'deploy'
+  end
+end
+
+desc "Restart Application"
+task :restart do
+  on roles(:app), in: :sequence, wait: 5 do
+    invoke 'puma:restart'
+  end
+end
 
 # pumaコマンドをbundle execで実行
 append :rbenv_map_bins, "puma", "pumactl"
