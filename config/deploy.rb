@@ -13,24 +13,10 @@ set :branch, "master"
 
 # Default value for :linked_files is []
 append :linked_files, "config/master.key"
+append :linked_files, 'config/credentials/production.key'
 
 # Default value for linked_dirs is []
 append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system"
-
-# namespace :safe_deploy_to do
-#   task :push_config do
-#     next unless any? :linked_files
-#     on roles(:app) do
-#       fetch(:linked_files).each do |file|
-#         unless test "[ -f #{shared_path.join file} ]"
-#           execute :mkdir, '-p', shared_path.join(File.dirname(file))
-#           upload! file, "#{shared_path.join file}"
-#         end
-#       end
-#     end
-#   end
-#   after 'safe_deploy_to:ensure', 'safe_deploy_to:push_config'
-# end
 
 set :keep_releases, 5
 set :log_level, :debug
