@@ -8,8 +8,6 @@ default: &default
   adapter: postgresql
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   timeout: 5000
-  username: kota
-  password: 1007
 
 development:
   <<: *default
@@ -24,4 +22,6 @@ test:
 
 production:
   <<: *default
-  database: ails_lesson_production
+  database: rails_lesson_production
+  username: deploy
+  password: deploy
