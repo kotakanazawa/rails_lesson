@@ -56,7 +56,6 @@ group :development do
   gem 'capistrano-rbenv-install'
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
-  gem 'capistrano-faster-assets'
   gem 'capistrano3-puma'
 end
 
