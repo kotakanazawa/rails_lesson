@@ -14,12 +14,8 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test "followed_byのテストができている" do
-    user1 = users(:user1)
-    user2  = users(:user2)
-    assert_not user2.followed_by?(user1)
-    assert user1.followings << user2
-    assert user2.followed_by?(user1)
-    assert user1.active_follows.find_by(follower_id: user2.id).destroy
-    assert_not user2.followed_by?(user1)
+    assert @user1.followed_by?(@user2)
+    assert @user2.active_follows.find_by(follower_id: @user1.id).destroy
+    assert_not @user1.followed_by?(@user2)
   end
 end
