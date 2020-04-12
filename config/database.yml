@@ -24,4 +24,4 @@ production:
   <<: *default
   database: rails_lesson_production
   username: deploy
-  password: deploy
+  password: <%= ENV['RAILS_LESSON_PASSWORD'] %>
