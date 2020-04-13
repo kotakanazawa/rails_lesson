@@ -10,6 +10,14 @@ executors:
           BUNDLE_JOBS: 3
           BUNDLE_RETRY: 3
           BUNDLE_PATH: vendor/bundle
+          PGHOST: 127.0.0.1
+          PGUSER: circleci_rails_lesson
+          PGPASSWORD: ""
+      - image: circleci/postgres:10.11-alpine
+        environment:
+          POSTGRES_USER: circleci_rails_lesson
+          POSTGRES_DB: rails_lesson_test
+          POSTGRES_PASSWORD: ""
 
 commands:
   setup:
@@ -77,7 +85,3 @@ workflows:
   build_and_test:
     jobs:
       - test
-        # filters:
-        #   branches:
-        #     only: master
-
