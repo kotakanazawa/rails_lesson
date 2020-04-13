@@ -11,7 +11,7 @@ executors:
           BUNDLE_RETRY: 3
           BUNDLE_PATH: vendor/bundle
           PGHOST: 127.0.0.1
-          PGUSER: rails_lesson
+          PGUSER: circleci_rails_lesson
           PGPASSWORD: ""
       - image: circleci/postgres:10.11-alpine
         environment:
