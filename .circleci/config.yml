@@ -72,10 +72,6 @@ jobs:
           command: bin/rails db:schema:load
 
       - run:
-          name: Run Test
-          command: bin/rails test
-
-      - run:
           name: Rails Test
           command: |
             bin/rails test
