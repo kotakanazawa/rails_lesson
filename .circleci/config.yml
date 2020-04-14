@@ -86,8 +86,8 @@ jobs:
       - checkout
       - setup
       - add_ssh_keys:
-        fingerprints:
-          - "07:fe:ba:30:f8:02:64:7c:d5:14:f7:e2:71:59:97:b1"
+          fingerprints:
+            - "07:fe:ba:30:f8:02:64:7c:d5:14:f7:e2:71:59:97:b1"
       - run:
         name: Deploy with Capistrano
         command: bundle exec cap production deploy
@@ -97,8 +97,8 @@ workflows:
     jobs:
       - test
       - deploy:
-        requires:
-          - test
-        filters:
-          branches:
-            only: master
+          requires:
+            - test
+          filters:
+            branches:
+              only: master
