@@ -2,7 +2,7 @@ server "kota-kanazawa.work", user: "deploy", roles: %w{web db app}
 
 # ssh
 set :ssh_options, {
-  user: "deploy", # TODO change to fetch(:user)
+  user: fetch(:user),
   port: 10022,
   keys: ["#{ENV.fetch('PRODUCTION_SSH_KEY')}"],
   forward_agent: true,
