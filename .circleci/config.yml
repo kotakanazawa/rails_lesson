@@ -71,6 +71,7 @@ jobs:
           name: Database setup
           command: bin/rails db:schema:load
 
+      # no need to add this
       # - run:
       #     name: Run Test
       #     command: bin/rails test
