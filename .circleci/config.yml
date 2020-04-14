@@ -72,7 +72,7 @@ jobs:
           command: bin/rails db:schema:load
 
       - run:
-          name: Run test
+          name: Run Test
           command: bin/rails test
 
       - run:
@@ -80,8 +80,25 @@ jobs:
           command: |
             bin/rails test
             bin/rails test:system
+  deploy:
+    executor: default
+    steps:
+      - checkout
+      - setup
+      - add_ssh_keys:
+        fingerprints:
+          - 07:fe:ba:30:f8:02:64:7c:d5:14:f7:e2:71:59:97:b1
+      - deploy:
+        name: Deploy with Capistrano
+        command: bundle exec cap production deploy
 
 workflows:
-  build_and_test:
+  test_and_deploy:
     jobs:
       - test
+      - deploy:
+        requires:
+          - test
+        filters:
+          branches:
+            only: master
